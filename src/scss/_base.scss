@@ -1,0 +1,62 @@
+$font-primary: "Poppins", sans-serif;
+$color-primary: #FF8FB8;
+$color-primary-light: #FFC8DD;
+$color-secondary: #f0f0f0;
+$color-hover-active: #ffffff;
+$color-backround: #f5f5f5;
+$color-dark-font: #2b2f38;
+$color-disabled: #d3d3d3;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$breakpoints: (
+    'small': (min-width: 576px),
+    'medium': (min-width: 992px),
+    'large': (min-width: 1200px),
+    'larger': (min-width: 1400px)
+    /* El sitio no está adaptado a resoluciones superiores a 1920 width */
+);
+
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(type-of($raw-query)=='string',
+            unquote($raw-query),
+            inspect($raw-query));
+
+        @media #{$query} {
+            @content;
+        }
+    }
+
+    @else {
+        @error 'No value found for `#{$breakpoint}`.'
+        + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+.font {
+    font-family: 'Poppins';
+}
+
+a {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: normal;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+body {
+    background-color: $color-backround;
+}

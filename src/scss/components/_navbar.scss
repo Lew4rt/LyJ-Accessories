@@ -1,0 +1,149 @@
+.navbar {
+    background-color: $color-primary;
+    font-family: $font-primary;
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: $color-secondary;
+            font-size: 1.1rem;
+
+            &:hover {
+                color: $color-hover-active;
+                transform: scale(1.05);
+                transition: all 300ms;
+            }
+
+        }
+
+        .active {
+            color: $color-hover-active !important;
+            transform: scale(1.05);
+        }
+    }
+
+    .ms-searchbar {
+        margin-left: -40px;
+    }
+
+    .nav-icons {
+        display: flex;
+        justify-content: space-evenly;
+
+        & a {
+            color: $color-secondary;
+
+            &:hover {
+                color: $color-hover-active;
+                transform: scale(1.15);
+                transition: all 300ms;
+            }
+        }
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.25rem $color-primary-light;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: url("src/assets/images/xmark-solid.svg") no-repeat 50% 50%;
+        filter: invert(80%) sepia(12%) saturate(863%) hue-rotate(296deg) brightness(102%) contrast(109%);
+    }
+
+    .navbar-toggler {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+      
+        &, &:focus, &:active, &-icon:focus {
+          outline: none;
+          box-shadow: none;
+          border: 0;
+          position: relative;
+        }
+      
+        span {
+          margin: 0;
+          padding: 0;
+        }
+      
+        .toggler-icon {
+          display: block;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: $color-hover-active;
+          border-radius: 1px;
+          opacity: 1;
+          left: 0;
+          transform: rotate(0deg);
+          transition: 0.25s ease-in-out;
+        }
+      
+        .middle-bar {
+          margin-top: 0px;
+        }
+      
+        &.collapsed {
+          .top-bar {
+            position: absolute;
+            top: 0px;
+            transform: rotate(0deg);
+          }
+      
+          .middle-bar {
+            opacity: 1;
+            position: absolute;
+            top: 10px;
+            filter: alpha(opacity=100);
+          }
+      
+          .bottom-bar {
+            position: absolute;
+            top: 20px;
+            transform: rotate(0deg);
+          }
+      
+          .toggler-icon {
+            background: $color-hover-active;
+          }
+        }
+      
+        .top-bar {
+          top: inherit;
+          transform: rotate(135deg);
+        }
+      
+        .middle-bar {
+          opacity: 0;
+          top: inherit;
+          filter: alpha(opacity=0);
+        }
+      
+        .bottom-bar {
+          top: inherit;
+          transform: rotate(-135deg);
+        }
+    }
+    .text-brand {
+        display: none;
+        text-decoration: none;
+        color: $color-secondary;
+        align-self: center;
+        font-size: 1.3rem;
+        margin-left: 5px;
+
+        @include respond-to('small') {
+            display: inline;
+        }
+    }
+    
+}
