@@ -1,13 +1,14 @@
 import { BsFillCartFill } from "react-icons/bs";
 import cx from "classnames";
+import { Link } from "react-router-dom";
 
 export default function CartWidget({ isCollapsed, productsQuantity}) {
 
   return (
     <div className={cx("d-flex text-white", { "mt-3": isCollapsed })}>
-      <a href="" aria-label="Carrito de compras">
+      <Link to={"cart"} aria-label="Carrito de compras">
         <BsFillCartFill style={{ fontSize: 30 }} />
-      </a>
+      </Link>
       <p>{productsQuantity}</p>
     </div>
   );

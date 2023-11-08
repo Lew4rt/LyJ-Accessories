@@ -1,0 +1,113 @@
+.cards_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5vh;
+  margin-inline: 5vw !important;
+  margin-top: 5vh;
+  justify-items: center;
+
+  @include respond-to("small") {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0;
+    row-gap: 3vh;
+    margin-inline: 0vw;
+  }
+
+  @include respond-to("large") {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4vh;
+  }
+
+  @include respond-to("larger") {
+    margin-inline: 15vw;
+  }
+}
+
+.card {
+  width: 80vw;
+  height: 500px !important;
+  background-color: white;
+  border-radius: 20px !important;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to("small") {
+    width: 45vw;
+  }
+
+  @include respond-to("medium") {
+    width: 35vw;
+  }
+
+  @include respond-to("large") {
+    width: 25vw;
+  }
+
+  @include respond-to("larger") {
+    width: 20vw;
+  }
+
+  &:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 300ms !important;
+  }
+
+  .card_media {
+    height: 55%;
+
+    img,
+    video {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .card_description {
+    height: 45%;
+    margin-inline: 20px;
+    margin-top: 15px;
+    font-family: $font-primary;
+    color: #2b2f38;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    display: flex;
+    flex-direction: column;
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      font-size: 1.1rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    hr {
+      margin-block: 6px;
+      color: rgba(122, 122, 122, 0.836);
+    }
+
+    .card_price {
+      max-lines: 1;
+      text-overflow: ellipsis;
+      margin-top: 3px;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      font-weight: bold;
+    }
+
+    .card_description_text {
+      height: 50%;
+    }
+  }
+}

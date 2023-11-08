@@ -1,18 +1,32 @@
-import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
+import Item from "../item/item";
+import { useParams } from "react-router-dom";
 
-export default function ItemListContainer({ greeting, increment, reset}) {
+const ItemListContainer = ({ increment, reset }) => {
+  const [products, setProducts] = useState([]);
+  const { category } = useParams();
+
+  useEffect(() => {
+    fetch("src/items.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const filteredProducts = data.filter((product) => product.category == category)
+        category
+          ? setProducts(filteredProducts)
+          : setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error loading JSON data:", error);
+      });
+  }, [category]);
 
   return (
-    <div className="d-flex flex-column align-items-center">
-      <div className="item-list-container-greeting">{greeting}</div>
-      <div className="d-flex gap-4">
-        <Button onClick={increment} variant="success">
-          Agregar producto al carrito
-        </Button>
-        <Button onClick={reset} variant="danger">
-          Limpiar carrito
-        </Button>
-      </div>
-    </div>
+    <section className="cards_container">
+      {products.map((item, index) => (
+        <Item key={index} product={item} />
+      ))}
+    </section>
   );
-}
+};
+
+export default ItemListContainer;
