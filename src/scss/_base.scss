@@ -15,6 +15,7 @@ $color-disabled: #d3d3d3;
 
 $breakpoints: (
     'small': (min-width: 576px),
+    'medium-small': (min-width: 768px),
     'medium': (min-width: 992px),
     'large': (min-width: 1200px),
     'larger': (min-width: 1400px)
@@ -45,7 +46,7 @@ $breakpoints: (
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 strong {
@@ -58,5 +59,5 @@ ol {
 }
 
 body {
-    background-color: $color-backround;
+    background-color: $color-backround !important;
 }

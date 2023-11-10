@@ -9,7 +9,7 @@ export default function CartWidget({ isCollapsed, productsQuantity}) {
       <Link to={"cart"} aria-label="Carrito de compras">
         <BsFillCartFill style={{ fontSize: 30 }} />
       </Link>
-      <p>{productsQuantity}</p>
+      <p>{productsQuantity && productsQuantity}</p>
     </div>
   );
 }

@@ -18,12 +18,13 @@
             }
 
         }
-
-        .active {
-            color: $color-hover-active !important;
-            transform: scale(1.05);
-        }
     }
+
+    .nav-link-active {
+      color: $color-hover-active !important;
+      /* Probé agregando especificidad y no funciona, según estuve investigando muchos deciden usar el !important en esta parte del navbar de bootstrap */
+      transform: scale(1.5);
+  }
 
     .ms-searchbar {
         margin-left: -40px;
@@ -53,7 +54,7 @@
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        background: url("src/assets/images/xmark-solid.svg") no-repeat 50% 50%;
+        background: url("/src/assets/images/xmark-solid.svg") no-repeat 50% 50%;
         filter: invert(80%) sepia(12%) saturate(863%) hue-rotate(296deg) brightness(102%) contrast(109%);
     }
 

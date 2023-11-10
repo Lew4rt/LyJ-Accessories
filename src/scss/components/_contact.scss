@@ -1,0 +1,65 @@
+.container--contact-data {
+    font-family: $font-primary;
+    margin-block : 90px !important;
+    font-size: 1rem;
+  
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  
+    p {
+      margin-bottom: 0;
+    }
+  }
+  
+  .container--about-us {
+    margin-top: 30px;
+    flex-direction: column;
+    font-family: $font-primary;
+
+    @include respond-to('medium'){
+        flex-direction: row;
+    }
+  }
+  
+  .container--image-about-us {
+    display: inline-block;
+    height: 70vh !important;
+    overflow: auto;
+    background-image: url(/src/assets/images/logo.png);
+    background-repeat: no-repeat;
+    background-position: top start;
+    background-size: contain;
+  
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    @include respond-to('medium'){
+        height: 80vh;
+        width: 45%;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+  }
+  
+  .title__about-us{
+    text-align: start;
+    text-decoration: none;
+    margin-bottom: -20px;
+  }
+  .container--text-about-us {
+    h3 {
+      font-size: 2.2rem;
+    }
+  
+    p {
+      font-size: 1.2rem;
+    }
+
+    @include respond-to('medium'){
+        width: 55%;
+    }
+  }

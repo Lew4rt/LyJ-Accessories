@@ -19,7 +19,7 @@ export default function Footer() {
               >
                 <img
                   className="social_media_icons"
-                  src="src/assets/images/ic_instagram.png"
+                  src="/src/assets/images/ic_instagram.png"
                   alt="ícono de instagram"
                 />
               </a>
@@ -31,7 +31,7 @@ export default function Footer() {
               >
                 <img
                   className="social_media_icons"
-                  src="src/assets/images/ic_facebook.png"
+                  src="/src/assets/images/ic_facebook.png"
                   alt="ícono de facebook"
                 />
               </a>

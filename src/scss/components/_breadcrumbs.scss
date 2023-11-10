@@ -1,0 +1,16 @@
+.custom_breadcrumb {
+    margin-top: 30px;
+
+    li{
+        font-family: $font-primary;
+
+        a{
+            text-decoration: none;
+            color: $color-primary;
+            
+            &:hover{
+                color: $color-primary;
+            }
+        }
+    }   
+}

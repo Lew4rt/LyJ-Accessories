@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import CartWidget from "./CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavigationBar({ productsQuantity }) {
   const links = ["Bijouterie", "Acero", "Resina", "Contacto"];
@@ -13,7 +13,7 @@ function NavigationBar({ productsQuantity }) {
         <Link to={"/"} style={{ textDecoration: 'none' }}>
           <Navbar.Brand>
             <img
-              src="src/assets/images/logo.png"
+              src="/src/assets/images/logo.png"
               alt="Imágen del logo"
               width={100}
               height={100}
@@ -61,16 +61,20 @@ function NavigationBar({ productsQuantity }) {
             <Nav className="navbar-nav me-auto justify-content-center gap-5">
               {links.map((element, id) => (
                 <li key={id}>
-                  <Link className="nav-link" to={`${element}`}>
+                  <NavLink style={({ isActive }) => ({
+                     color: isActive ? '#ffffff' : '',
+                     transform: isActive ? 'scale(1.15)' : 'scale(1)'
+                     }
+                     )} className="nav-link" to={`${element}`}>
                     {element}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </Nav>
           </Container>
           <div className="nav-icons d-flex d-lg-none">
             <CartWidget
-              productsQuantity={productsQuantity}
+              // productsQuantity={productsQuantity}
               isCollapsed={true}
             />
             <a className="mt-3" aria-label="Perfil de usuario">
@@ -79,7 +83,9 @@ function NavigationBar({ productsQuantity }) {
           </div>
         </Navbar.Collapse>
         <div className="nav-icons d-none d-lg-flex col-2">
-          <CartWidget productsQuantity={productsQuantity} isCollapsed={true} />
+          <CartWidget 
+          // productsQuantity={productsQuantity} 
+          isCollapsed={true} />
           <a className="mt-3" aria-label="Perfil de usuario">
             <BsPersonFill style={{ fontSize: 30 }} />
           </a>

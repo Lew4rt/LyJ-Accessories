@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700 &display=swap");
 * {
   padding: 0;
@@ -10,7 +11,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 strong {
@@ -23,7 +24,7 @@ ol {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
 }
 
 .navbar {
@@ -42,9 +43,10 @@ body {
   transform: scale(1.05);
   transition: all 300ms;
 }
-.navbar .navbar-nav .active {
+.navbar .nav-link-active {
   color: #ffffff !important;
-  transform: scale(1.05);
+  /* Probé agregando especificidad y no funciona, según estuve investigando muchos deciden usar el !important en esta parte del navbar de bootstrap */
+  transform: scale(1.5);
 }
 .navbar .ms-searchbar {
   margin-left: -40px;
@@ -69,7 +71,7 @@ body {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: url("src/assets/images/xmark-solid.svg") no-repeat 50% 50%;
+  background: url("/src/assets/images/xmark-solid.svg") no-repeat 50% 50%;
   filter: invert(80%) sepia(12%) saturate(863%) hue-rotate(296deg) brightness(102%) contrast(109%);
 }
 .navbar .navbar-toggler {
@@ -147,13 +149,6 @@ body {
   .navbar .text-brand {
     display: inline;
   }
-}
-
-.item-list-container-greeting {
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 2rem;
-  margin-top: 10vh;
 }
 
 footer {
@@ -264,11 +259,18 @@ footer .footer_bottom hr {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 5vh;
-  margin-inline: 5vw !important;
   margin-top: 5vh;
   justify-items: center;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
+  .cards_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    row-gap: 3vh;
+    margin-inline: 0vw;
+  }
+}
+@media (min-width: 992px) {
   .cards_container {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
@@ -280,11 +282,6 @@ footer .footer_bottom hr {
   .cards_container {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 4vh;
-  }
-}
-@media (min-width: 1400px) {
-  .cards_container {
-    margin-inline: 15vw;
   }
 }
 
@@ -299,7 +296,12 @@ footer .footer_bottom hr {
 }
 @media (min-width: 576px) {
   .card {
-    width: 45vw;
+    width: 70vw;
+  }
+}
+@media (min-width: 768px) {
+  .card {
+    width: 40vw;
   }
 }
 @media (min-width: 992px) {
@@ -369,6 +371,245 @@ footer .footer_bottom hr {
 }
 .card .card_description .card_description_text {
   height: 50%;
+}
+
+.container--contact-data {
+  font-family: "Poppins", sans-serif;
+  margin-block: 90px !important;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.container--contact-data p {
+  margin-bottom: 0;
+}
+
+.container--about-us {
+  margin-top: 30px;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+@media (min-width: 992px) {
+  .container--about-us {
+    flex-direction: row;
+  }
+}
+
+.container--image-about-us {
+  display: inline-block;
+  height: 70vh !important;
+  overflow: auto;
+  background-image: url(/src/assets/images/logo.png);
+  background-repeat: no-repeat;
+  background-position: top start;
+  background-size: contain;
+}
+.container--image-about-us img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 992px) {
+  .container--image-about-us {
+    height: 80vh;
+    width: 45%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.title__about-us {
+  text-align: start;
+  text-decoration: none;
+  margin-bottom: -20px;
+}
+
+.container--text-about-us h3 {
+  font-size: 2.2rem;
+}
+.container--text-about-us p {
+  font-size: 1.2rem;
+}
+@media (min-width: 992px) {
+  .container--text-about-us {
+    width: 55%;
+  }
+}
+
+.custom_breadcrumb {
+  margin-top: 30px;
+}
+.custom_breadcrumb li {
+  font-family: "Poppins", sans-serif;
+}
+.custom_breadcrumb li a {
+  text-decoration: none;
+  color: #FF8FB8;
+}
+.custom_breadcrumb li a:hover {
+  color: #FF8FB8;
+}
+
+@media (min-width: 992px) {
+  .item_detail_container .item_detail_product_container {
+    display: flex;
+  }
+}
+@media (min-width: 992px) {
+  .item_detail_container .item_detail_product_body_container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    margin-top: 4vw;
+  }
+}
+.item_detail_container .item_detail_title {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins";
+  font-size: 1.5rem;
+}
+.item_detail_container .item_detail_price {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins";
+  font-size: 1.2rem;
+}
+.item_detail_container .item_detail_image {
+  width: 100%;
+  margin-bottom: 5vh;
+}
+@media (min-width: 992px) {
+  .item_detail_container .item_detail_image {
+    max-width: 500px;
+  }
+}
+.item_detail_container .item_detail_buy {
+  display: flex;
+  justify-content: space-between;
+}
+.item_detail_container .item_detail_description {
+  font-family: "Poppins";
+}
+.item_detail_container .item_detail_cart_button {
+  background-color: #FF8FB8 !important;
+  border: 0;
+}
+.item_detail_container .item_detail_cart_button:active, .item_detail_container .item_detail_cart_button :focus {
+  background-color: #FFC8DD !important;
+}
+.item_detail_container .item_detail_cart_button:hover {
+  background-color: #FFC8DD !important;
+}
+.item_detail_container input {
+  max-width: 2rem;
+  margin: 0;
+  color: #FF8FB8;
+  font-family: "Poppins";
+  font-weight: 600;
+  background-color: #f5f5f5;
+  padding: 0.8rem 0;
+  text-align: center;
+  border-top: 1px solid #d3d3d3;
+  border-left: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  border-right: 0;
+}
+.item_detail_container .quantity-selectors-container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+}
+.item_detail_container .quantity-selectors {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.item_detail_container .quantity-selectors button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #d3d3d3;
+  background-color: #f5f5f5;
+}
+.item_detail_container .quantity-selectors button:first-child {
+  border-bottom: 0;
+}
+.item_detail_container .quantity-selectors button:hover {
+  cursor: pointer;
+}
+.item_detail_container .quantity-selectors button[disabled=disabled] {
+  cursor: not-allowed;
+}
+.item_detail_container .quantity-selectors button[disabled=disabled] span {
+  opacity: 0.5;
+}
+
+.container--cart-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+.container--cart-main h2 {
+  text-shadow: none;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+@media (min-width: 992px) {
+  .container--cart-main {
+    flex-direction: row;
+  }
+}
+
+.container--cart-content {
+  background-color: white;
+  border-radius: 10px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container--cart-content .empty_cart_image {
+  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(163deg) brightness(89%) contrast(85%);
+}
+.container--cart-content button {
+  font-family: "Poppins";
+  color: #f0f0f0;
+  border-radius: 10px;
+  background-color: #FF8FB8;
+  border: 0px;
+  padding-inline: 35px;
+  padding-block: 10px;
+}
+@media (min-width: 992px) {
+  .container--cart-content {
+    flex-basis: 70%;
+  }
+}
+
+.container--cart-price {
+  background-color: white;
+  border-radius: 10px;
+  height: min-content;
+  padding-top: 15px;
+  font-family: "Poppins";
+  color: #d3d3d3;
+}
+.container--cart-price h3 {
+  font-size: 1.2rem;
+}
+@media (min-width: 992px) {
+  .container--cart-price {
+    flex-basis: 30%;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

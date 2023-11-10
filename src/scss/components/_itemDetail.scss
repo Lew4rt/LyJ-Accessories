@@ -1,0 +1,110 @@
+.item_detail_container{
+    .item_detail_product_container{
+        @include respond-to('medium'){
+            display: flex;
+        }
+    }
+    .item_detail_product_body_container{
+        @include respond-to('medium'){
+            display: flex;
+            flex-direction: column;
+            margin-left: 5vw;
+            margin-top: 4vw;
+        }
+    }
+    .item_detail_title{
+        display: flex;
+        justify-content: center;
+        font-family: 'Poppins';
+        font-size: 1.5rem;
+    }
+    .item_detail_price{
+        display: flex;
+        justify-content: center;
+        font-family: 'Poppins';
+        font-size: 1.2rem;
+    }
+    .item_detail_image{
+        width: 100%;
+        margin-bottom: 5vh;
+        @include respond-to('medium'){
+            max-width: 500px;
+        }
+    }
+    .item_detail_buy{
+        display: flex;
+        justify-content: space-between;
+    }
+    .item_detail_description{
+        font-family: 'Poppins';
+    }
+    .item_detail_cart_button{
+        background-color: $color-primary !important;
+        border: 0;
+        &:active, :focus{
+            background-color: $color-primary-light !important;
+        }
+        &:hover{
+            background-color: $color-primary-light !important;
+        }
+    }
+    input {
+        max-width: 2rem;
+        margin: 0;
+        color: $color-primary;
+        font-family: 'Poppins';
+        font-weight: 600;
+        background-color: $color-backround;
+        padding: 0.8rem 0;
+        text-align: center;
+        border-top: 1px solid $color-disabled;
+        border-left: 1px solid $color-disabled;
+        border-bottom: 1px solid $color-disabled;
+        border-right: 0;
+      }
+      
+      .quantity-selectors-container {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .quantity-selectors {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .quantity-selectors button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        border-radius: 0;
+        border: 1px solid $color-disabled;
+        background-color: $color-backround;
+      }
+      
+      .quantity-selectors button:first-child {
+        border-bottom: 0;
+      }
+      
+      .quantity-selectors button:hover {
+        cursor: pointer;
+      }
+      
+      .quantity-selectors button[disabled="disabled"] {
+        cursor: not-allowed;
+      }
+      
+      .quantity-selectors button[disabled="disabled"] span {
+        opacity: 0.5;
+      }
+    
+}
+
+  
+ 
+
+

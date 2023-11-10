@@ -2,11 +2,17 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 5vh;
-  margin-inline: 5vw !important;
   margin-top: 5vh;
   justify-items: center;
 
-  @include respond-to("small") {
+  @include respond-to("medium-small") {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    row-gap: 3vh;
+    margin-inline: 0vw;
+  }
+
+  @include respond-to("medium") {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
     row-gap: 3vh;
@@ -18,9 +24,6 @@
     grid-gap: 4vh;
   }
 
-  @include respond-to("larger") {
-    margin-inline: 15vw;
-  }
 }
 
 .card {
@@ -34,7 +37,11 @@
   flex-direction: column;
 
   @include respond-to("small") {
-    width: 45vw;
+    width: 70vw;
+  }
+
+  @include respond-to("medium-small") {
+    width: 40vw;
   }
 
   @include respond-to("medium") {
