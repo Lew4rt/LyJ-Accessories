@@ -1,5 +1,13 @@
 Consigna.
 
- ✓   Crea un componente CartWidget con un ícono y una notificación mostrando un número hardcodeado (fijo). Este servirá luego para indicar la cantidad de elementos que tenemos en el carrito, pero por ahora, mostrará un número hardcodeado (colocado en el código). Ubica este componente (CartWidget) dentro de Navbar.. Agrega algunos estilos con bootstrap/materialize u otro.
+    Configura en App.js el routing usando un BrowserRouter de tu aplicación con react-router-dom
 
- ✓   Crea un componente contenedor ItemListContainer.js con una prop greeting, y muestra el mensaje dentro del contenedor con el styling integrado.
+    Componentes:
+    Navbar con cart
+    Catálogo
+    Detalle de producto
+
+
+Objetivos.
+
+    Deberás desarrollar la navegabilidad básica de la aplicación, demostrando que la app permite ver el catálogo, y navegar a un detalle.
