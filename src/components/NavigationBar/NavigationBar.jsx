@@ -4,9 +4,9 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import { NAVLINKS } from "../../constants/categories";
 
-function NavigationBar({ productsQuantity }) {
-  const links = ["Bijouterie", "Acero", "Resina", "Contacto"];
+function NavigationBar() {
   return (
     <Navbar expand="lg">
       <Container>
@@ -59,7 +59,7 @@ function NavigationBar({ productsQuantity }) {
           </div>
           <Container className="container col-12 mt-3">
             <Nav className="navbar-nav me-auto justify-content-center gap-5">
-              {links.map((element, id) => (
+              {NAVLINKS.map((element, id) => (
                 <li key={id}>
                   <NavLink style={({ isActive }) => ({
                      color: isActive ? '#ffffff' : '',
@@ -74,7 +74,6 @@ function NavigationBar({ productsQuantity }) {
           </Container>
           <div className="nav-icons d-flex d-lg-none">
             <CartWidget
-              // productsQuantity={productsQuantity}
               isCollapsed={true}
             />
             <a className="mt-3" aria-label="Perfil de usuario">
@@ -84,9 +83,8 @@ function NavigationBar({ productsQuantity }) {
         </Navbar.Collapse>
         <div className="nav-icons d-none d-lg-flex col-2">
           <CartWidget 
-          // productsQuantity={productsQuantity} 
           isCollapsed={true} />
-          <a className="mt-3" aria-label="Perfil de usuario">
+          <a className="disabled mt-3" aria-label="Perfil de usuario">
             <BsPersonFill style={{ fontSize: 30 }} />
           </a>
         </div>

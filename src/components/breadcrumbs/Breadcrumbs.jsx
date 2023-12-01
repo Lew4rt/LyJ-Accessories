@@ -10,14 +10,19 @@ function Breadcrumbs({ location, productTitle }) {
         Home
         </Breadcrumb.Item>
       {pathnames.map((name, index) => {
-        const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
-        const isLast = index === pathnames.length - 1;
-
-        return (
-            <Breadcrumb.Item className={isLast && 'active_breadcrumb'} key={name} linkAs={Link} linkProps={{to: routeTo}} active={isLast}>
-              {isLast && productTitle ? productTitle : name}
-            </Breadcrumb.Item>
-        );
+        if (name !== "product"){
+          if(name === "cart"){
+            name = "Carrito"
+          }
+          const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+          const isLast = index === pathnames.length - 1;
+  
+          return (
+              <Breadcrumb.Item className={isLast && 'active_breadcrumb'} key={name} linkAs={Link} linkProps={{to: routeTo}} active={isLast}>
+                {isLast && productTitle ? productTitle : name}
+              </Breadcrumb.Item>
+          );
+        }
       })}
     </Breadcrumb>
   );

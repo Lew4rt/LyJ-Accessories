@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-function QuantitySelector({stock}) {
-  const [quantity, setQuantity] = useState(1);
+function QuantitySelector({stock, quantity, setQuantity}) {
 
   useEffect(() => {
     if (quantity > stock) {
       setQuantity(stock);
     }
-  }, [quantity, stock]);
+  }, [quantity, stock, setQuantity]);
 
   const handleQuantityChange = (direction) => {
     const newQuantity = quantity + direction;
@@ -17,7 +16,7 @@ function QuantitySelector({stock}) {
   };
 
   return (
-      <div className="product-quantity">
+      <div className="product-quantity d-flex">
         <input
           type="text"
           name="quantity"
@@ -45,6 +44,11 @@ function QuantitySelector({stock}) {
               <span>&#8722;</span>
             </button>
           </div>
+        </div>
+        <div  className='d-flex align-items-center ms-2'>
+        {quantity === 0 && (
+        <span style={{color:"#d3d3d3"}}>Producto no disponible momentaneamente</span>
+        )}
         </div>
       </div>
   );

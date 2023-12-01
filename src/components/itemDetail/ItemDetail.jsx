@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { CartContext } from "../../context/CartContext";
 import { Button, Container } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
@@ -8,6 +9,24 @@ export default function ItemDetail({ product }) {
   const fileExtension = product.imageSrc.split(".").pop();
   const isImage = ["jpg", "jpeg", "png", "gif"].includes(fileExtension);
   const isVideo = ["mp4", "webm"].includes(fileExtension);
+  const [quantity, setQuantity] = useState(1);
+  const { cart } = useContext(CartContext);
+  const [tempStock, setTempStock] = useState();
+
+  useEffect(() => {
+    setTempStock(product.stock)
+    const productAlreadyInCart = cart.find((item) => item.product.id === product.id)
+    if(productAlreadyInCart){
+      setTempStock(product.stock - productAlreadyInCart.quantity)
+    }
+  }, [cart, product, quantity])
+
+  const { addItem } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addItem(product, quantity);
+    setQuantity(1);
+  };
 
   return (
     <>
@@ -37,10 +56,19 @@ export default function ItemDetail({ product }) {
             <h2 className="item_detail_price">ARS${product.price}</h2>
             <hr />
             <div className="item_detail_buy">
-              <QuantitySelector stock={product.stock} />
-              <Button className="item_detail_cart_button">
-                Agregar al carrito
-              </Button>
+              <QuantitySelector
+                stock={tempStock}
+                quantity={quantity}
+                setQuantity={setQuantity}
+              />
+              {quantity !== 0 && (
+                <Button
+                  className="item_detail_cart_button"
+                  onClick={handleAddToCart}
+                >
+                  Agregar al carrito
+                </Button>
+              )}
             </div>
             <hr />
             <p className="item_detail_description">{product.description}</p>

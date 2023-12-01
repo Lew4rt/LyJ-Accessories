@@ -61,3 +61,8 @@ ol {
 body {
     background-color: $color-backround !important;
 }
+
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+  }

@@ -1,5 +1,1 @@
-export const Categories = {
-    Bijouterie: "Bijouterie",
-    Resin: "Resina",
-    Steel: "Acero",
-}
+export const NAVLINKS = ["Bijouterie", "Acero", "Resina", "Contacto"]

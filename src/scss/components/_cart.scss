@@ -18,6 +18,89 @@
 .container--cart-content{
     background-color: white;
     border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins';
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: #2b2f38;
+    .cart_title{
+        margin-left: 10px;
+    }
+    .cart_row{
+        padding: 20px;
+    }
+    .cart_item_image_container{
+        display:flex;
+        align-items: center;
+        flex: 0 0 0;
+        justify-content: center;
+    }
+    .cart_item_image{
+        max-height: 55px;
+        width: 75px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .cart_item_title{
+        font-size: 1.2rem;
+        color: #2b2f38;
+        text-decoration: none !important;
+    }
+    .btn-link {
+        max-height: 20px;
+        --bs-btn-font-weight: 400;
+        --bs-btn-color: #FF8FB8;
+        padding: 0;
+        --bs-btn-hover-color: #FFC8DD;
+        --bs-btn-active-color: #FFC8DD;
+        text-decoration: none;
+    }
+    .cart_item_price{
+        display: flex;
+        font-weight: 600;
+        justify-content: end;
+    }
+    .empty_cart_image{
+        filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(163deg) brightness(89%) contrast(85%);
+    }
+    @include respond-to('medium') {
+        flex-basis: 70%;
+    }
+}
+
+.container--cart-price{
+    background-color: white;
+    border-radius: 10px;
+    height: min-content;
+    padding-top: 15px;
+    font-family: 'Poppins';
+    h3{
+        font-size: 1.2rem;
+    }
+    @include respond-to('medium') {
+        flex-basis: 30%;
+    }
+    
+    .button_add_products{
+        font-family: 'Poppins';
+        color: $color-secondary;
+        border-radius: 10px;
+        background-color: $color-primary;
+        border: 0px;
+        padding-inline: 35px;
+        padding-block: 10px;
+        &:hover{
+            transform: scale(1.1);
+            transition: transform 300ms;
+        }
+    }
+}
+
+.empty_container--cart-content{
+    background-color: white;
+    border-radius: 10px;
     height: 400px;
 
     display: flex;
@@ -35,13 +118,17 @@
         border: 0px;
         padding-inline: 35px;
         padding-block: 10px;
+        &:hover{
+            transform: scale(1.1);
+            transition: transform 300ms;
+        }
     }
     @include respond-to('medium') {
         flex-basis: 70%;
     }
 }
 
-.container--cart-price{
+.empty_container--cart-price{
     background-color: white;
     border-radius: 10px;
     height: min-content;

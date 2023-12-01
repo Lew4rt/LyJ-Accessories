@@ -26,12 +26,16 @@
     }
     .item_detail_image{
         width: 100%;
+        max-height: 420px;
+        border-radius: 8px;
+        object-fit: cover;
         margin-bottom: 5vh;
         @include respond-to('medium'){
             max-width: 500px;
         }
     }
     .item_detail_buy{
+        max-height: 50px;
         display: flex;
         justify-content: space-between;
     }
@@ -41,6 +45,7 @@
     .item_detail_cart_button{
         background-color: $color-primary !important;
         border: 0;
+        min-width: 147px;
         &:active, :focus{
             background-color: $color-primary-light !important;
         }
