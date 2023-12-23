@@ -3,7 +3,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavigationBar from "./components/NavigationBar/NavigationBar.jsx";
 import Error from "./components/error/Error";
 import Footer from "./components/footer/Footer";
-import Contact from "./pages/contact/contact";
+import Contact from "./pages/contact/Contact.jsx";
 import Cart from "./pages/cart/Cart";
 import { Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer";
