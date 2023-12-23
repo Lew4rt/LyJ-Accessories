@@ -1,6 +1,6 @@
 import "./App.css";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import NavigationBar from "./components/navigationBar/NavigationBar.jsx";
+import NavigationBar from "./components/NavigationBar/NavigationBar.jsx";
 import Error from "./components/error/Error";
 import Footer from "./components/footer/Footer";
 import Contact from "./pages/contact/contact";
