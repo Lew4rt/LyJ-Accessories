@@ -13,7 +13,7 @@ function NavigationBar() {
         <Link to={"/"} style={{ textDecoration: 'none' }}>
           <Navbar.Brand>
             <img
-              src="/src/assets/images/logo.png"
+              src={"/static/images/logo.png"}
               alt="Imágen del logo"
               width={100}
               height={100}
