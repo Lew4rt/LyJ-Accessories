@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function item({ product }) {
+export default function Item({ product }) {
   const fileExtension = product.imageSrc.split(".").pop();
   const isImage = ["jpg", "jpeg", "png", "gif"].includes(fileExtension);
   const isVideo = ["mp4", "webm"].includes(fileExtension);

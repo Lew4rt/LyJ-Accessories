@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from 'react';
-import Item from "../item/item";
+import Item from "../item/Item.jsx";
 import { useParams } from "react-router-dom";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import { Container } from "react-bootstrap";
